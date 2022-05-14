@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--Tree view for schedule model-->
+    <record id="schedule_tree" model="ir.ui.view">
+        <field name="name">meeting.schedule.tree</field>
+        <field name="model">meeting.schedule</field>
+        <field name="arch" type="xml">
+            <tree string="Schedule">
+                <field name="meeting_header"/>
+                <field name="meeting_date"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <field name="meeting_host"/>
+                <field name="meeting_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Form view for schedule model-->
+    <record id="schedule_form" model="ir.ui.view">
+        <field name="name">meeting.schedule.form</field>
+        <field name="model">meeting.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Meeting Schedule">
+                <sheet>
+                    <center>
+                        <button name="start_meeting" t-on-click="discuss.onClickStartAMeetingButton" t-ref="startAMeetingButton" string="Start Meeting" class="oe_highlight"/>
+                        <button name="close_meeting" type="object" string="Close Meeting" class="btn-secondary ml-2"/>
+                    </center>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="meeting_header"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="meeting_date"/>
+                            <field name="start_time"/>
+                            <field name="end_time"/>
+                        </group>
+                        <group>
+                            <field name="meeting_host"/>
+                            <field name="participants" widget="many2many_tags"/>
+                            <field name="meeting_type"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action of the Schedule menu -->
+    <record id="action_schedule" model="ir.actions.act_window">
+            <field name="name">Schedule</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">meeting.schedule</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create Meeting
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="meeting_root" name="Live Meeting" sequence="0" web_icon="live_meeting,static/description/icon.png"/>
+    <menuitem id="meeting_schedule" name="Schedule" parent="meeting_root" sequence="1" action="action_schedule"/>
+</odoo>
