@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <!--Tree view for schedule model-->
     <record id="schedule_tree" model="ir.ui.view">
         <field name="name">meeting.schedule.tree</field>
@@ -25,7 +24,8 @@
             <form string="Meeting Schedule">
                 <sheet>
                     <center>
-                        <button name="start_meeting" t-on-click="discuss.onClickStartAMeetingButton" t-ref="startAMeetingButton" string="Start Meeting" class="oe_highlight"/>
+                        <button t-name="start_meeting" t-on-click="new_fun" string="Start Meeting" class="oe_highlight"/>
+<!--                    <button name="start_meeting" type="object" t-on-click="meeting.onClickStartAMeeting" t-ref="startAMeetingButton" string="Start Meeting" class="oe_highlight"/>-->
                         <button name="close_meeting" type="object" string="Close Meeting" class="btn-secondary ml-2"/>
                     </center>
                     <div class="oe_title">

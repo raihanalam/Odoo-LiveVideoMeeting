@@ -21,7 +21,12 @@ class MeetingSchedule(models.Model):
     )
 
     def start_meeting(self):
-        pass
+
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'self',
+            'url': '/web#cids=1&default_active_id=mail.box_inbox&action=116&menu_id=84&active_id=mail.box_inbox'
+        }
 
     def close_meeting(self):
         pass

@@ -5,7 +5,6 @@ import { attr, many2one, one2one } from '@mail/model/model_field';
 import { clear, insertAndReplace, link, unlink } from '@mail/model/model_field_command';
 
 function factory(dependencies) {
-
     class Discuss extends dependencies['mail.model'] {
 
         /**
@@ -174,6 +173,7 @@ function factory(dependencies) {
                 default_display_mode: 'video_full_screen',
                 partners_to: [this.messaging.currentPartner.id],
             });
+            console.log("Meeting started");
             meetingChannel.toggleCall({ startWithVideo: true });
             await meetingChannel.open({ focus: false });
             if (!meetingChannel.exists() || !this.threadView) {

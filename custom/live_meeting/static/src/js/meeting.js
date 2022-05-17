@@ -1,4 +1,3 @@
-odoo.define('live_meeting.StartMeeting',['mail.discuss'], function(require){
-
-    var = require("mail.discuss")
-});
+function new_fun(){
+    alert('Hello its working')
+}
