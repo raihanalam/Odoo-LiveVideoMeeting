@@ -24,8 +24,8 @@
             <form string="Meeting Schedule">
                 <sheet>
                     <center>
-                        <button t-name="start_meeting" t-on-click="new_fun" string="Start Meeting" class="oe_highlight"/>
-<!--                    <button name="start_meeting" type="object" t-on-click="meeting.onClickStartAMeeting" t-ref="startAMeetingButton" string="Start Meeting" class="oe_highlight"/>-->
+                        <button name="start_meeting" type="object" id="test_button" string="Start Meeting" class="oe_highlight"/>
+                        <button name="start_meeting" type="object" t-on-click="meeting.onClickStartAMeeting" t-ref="startAMeetingButton" string="Start Meeting" class="oe_highlight"/>
                         <button name="close_meeting" type="object" string="Close Meeting" class="btn-secondary ml-2"/>
                     </center>
                     <div class="oe_title">
