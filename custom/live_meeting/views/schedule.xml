@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+
+    <record model="ir.ui.view" id="schedule_calendar">
+            <field name="name">meeting.schedule.calendar</field>
+            <field name="model">meeting.schedule</field>
+            <field name="arch" type="xml">
+                <calendar string="Schedule Calendar" date_start="start_time" color="meeting_header" mode="month" quick_add="False">
+                    <field name="meeting_header"/>
+                    <field name="start_time"/>
+                </calendar>
+            </field>
+    </record>
     <!--Tree view for schedule model-->
     <record id="schedule_tree" model="ir.ui.view">
         <field name="name">meeting.schedule.tree</field>
@@ -25,7 +36,7 @@
                 <sheet>
                     <center>
                         <button name="start_meeting" type="object" id="test_button" string="Start Meeting" class="oe_highlight"/>
-                        <button name="start_meeting" type="object" t-on-click="meeting.onClickStartAMeeting" t-ref="startAMeetingButton" string="Start Meeting" class="oe_highlight"/>
+<!--                        <button name="start_meeting" type="object" t-on-click="discuss.onClickStartAMeeting" t-ref="startAMeetingButton" string="Start Meeting" class="oe_highlight"/>-->
                         <button name="close_meeting" type="object" string="Close Meeting" class="btn-secondary ml-2"/>
                     </center>
                     <div class="oe_title">
@@ -55,7 +66,7 @@
             <field name="name">Schedule</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">meeting.schedule</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,calendar</field>
             <field name="context">{}</field>
             <field name="help" type="html">
               <p class="o_view_nocontent_smiling_face">
