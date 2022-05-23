@@ -469,8 +469,9 @@ function factory(dependencies) {
 
     return Discuss;
 }
-function Meeting(dependencies){
-    return factory(dependencies)
+
+export function otherFun(dependencies) {
+    return factory(dependencies);
 }
 
 registerNewModel('mail.discuss', factory);

@@ -8,11 +8,12 @@ class MeetingSchedule(models.Model):
     # _inherit = ['mail.thread', 'mail.activity.mixin']
 
     meeting_header = fields.Char(string='Meeting Heading')
+    image = fields.Binary(string='Image')
     meeting_date = fields.Date(string='Meeting Date')
     start_time = fields.Datetime(string='Start Time')
     end_time = fields.Datetime(string='End Time')
-    meeting_host = fields.Many2one('res.users', string='Meeting Host')
-    participants = fields.Many2many('res.users', string='Meeting Participants')
+    meeting_host = fields.Many2one('res.users', string='Meeting Host', ondelete='cascade')
+    participants = fields.Many2many('res.users', 'meeting_part_users', string='Meeting Participants', ondelete='cascade')
     meeting_type = fields.Selection(
         [
             ('private', 'private'),

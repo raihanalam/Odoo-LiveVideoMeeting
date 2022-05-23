@@ -7,7 +7,7 @@
     'summary': 'Live Meeting, chat, mail gateway and private channels',
     'description': "",
     'website': 'https://www.odoo.com/app/discuss',
-    'depends': ['base', 'base_setup', 'bus', 'web_tour', 'mail'],
+    'depends': ['base', 'base_setup', 'bus', 'web_tour', 'mail', 'web_widget_image_webcam'],
     'data': [
         'security/ir.model.access.csv',
         'views/schedule.xml',
@@ -19,7 +19,7 @@
     'demo': [],
 
     'assets': {
-       'web.assets_backend': [
+        'web.assets_backend': [
             '/live_meeting/static/src/js/meeting.js',
         ],
 
